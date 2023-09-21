@@ -28,15 +28,35 @@ class ImagesViewController: UIViewController {
     
     
     @IBAction func openLibrary(_ sender: UIButton) {
-        self.present(picker, animated: true)
+        self.present(libraryPicker!, animated: true)
 
     }
     
     @IBAction func openCamera(_ sender: UIButton) {
-        self.present(libraryPicker!, animated: true)
+        self.present(picker, animated: true)
+
     }
     
     @IBAction func alertAction(_ sender: UIButton) {
+        let alertController = UIAlertController(title:" Demande d'autorisation", message: "Nous revendons vos données très cher." , preferredStyle: .alert)
+        let action = UIAlertAction(title: "Allez y" , style:.default){
+            act in  alertController.dismiss(animated: true , completion: nil)
+        }
+        let cancel = UIAlertAction(title: "Retour", style: .cancel)
+        
+        
+        alertController.addAction(action)
+        alertController.addAction(cancel)
+        
+        present(alertController, animated:true)
+
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
