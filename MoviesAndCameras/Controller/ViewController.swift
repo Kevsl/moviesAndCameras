@@ -21,9 +21,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchInputField: UITextField!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchInputField.delegate = self
+        
+        
     }
     
     var movieDatas: MovieDatas?
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
                         DispatchQueue.main.async {
                             self.moviesList =
                             self.movieDatas?.Search ?? []
-//                            self.setUpTableView()
+                          self.setupTableView()
                             self.tableView.reloadData()
 
                         }
@@ -67,4 +69,34 @@ extension ViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+
+
+extension ViewController: UITableViewDelegate,UITableViewDataSource{
+    
+    func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return moviesList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+       let object = moviesList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
+        
+        cell.setup(object)
+        
+    }
+    
+    
 }
