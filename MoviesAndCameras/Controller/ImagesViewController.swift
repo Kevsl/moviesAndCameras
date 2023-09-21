@@ -4,7 +4,7 @@ import PhotosUI
 
 class ImagesViewController: UIViewController {
 
-    var picker: UIImagePickerController()
+    var picker = UIImagePickerController()
     var libraryPicker: PHPickerViewController?
     
     
@@ -13,16 +13,25 @@ class ImagesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupConfig()
+        
+    }
+    
+    func checkCamera(){
+        
+        let hasCamera = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
         
         
     }
     
     
     @IBAction func openLibrary(_ sender: UIButton) {
+        self.present(picker, animated: true)
+
     }
     
     @IBAction func openCamera(_ sender: UIButton) {
-        self.present(picker, animated: true)
     }
     
     @IBAction func alertAction(_ sender: UIButton) {
