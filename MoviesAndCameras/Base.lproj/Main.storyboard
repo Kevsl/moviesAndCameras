@@ -29,13 +29,40 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nnC-Tg-DXg">
-                                        <rect key="frame" x="0.0" y="50" width="293" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nnC-Tg-DXg" customClass="MovieTableViewCell" customModule="MoviesAndCameras" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="293" height="61.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nnC-Tg-DXg" id="Dke-KR-Uom">
-                                            <rect key="frame" x="0.0" y="0.0" width="293" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="293" height="61.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RUY-uH-KxC">
+                                                    <rect key="frame" x="16" y="3" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="5Lg-U1-Kb2"/>
+                                                        <constraint firstAttribute="height" constant="45" id="jdt-nN-WWB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-IK-nrr">
+                                                    <rect key="frame" x="90" y="15" width="156" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RUY-uH-KxC" firstAttribute="leading" secondItem="Dke-KR-Uom" secondAttribute="leading" constant="16" id="KAo-vo-odd"/>
+                                                <constraint firstItem="XDZ-IK-nrr" firstAttribute="top" secondItem="Dke-KR-Uom" secondAttribute="topMargin" constant="4" id="Mjq-qh-1Cv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XDZ-IK-nrr" secondAttribute="bottom" constant="15.00000127156575" id="Zz5-BP-yp4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XDZ-IK-nrr" secondAttribute="trailing" constant="31" id="bCr-cE-Jcd"/>
+                                                <constraint firstItem="XDZ-IK-nrr" firstAttribute="leading" secondItem="RUY-uH-KxC" secondAttribute="trailing" constant="29" id="ksf-mU-WmB"/>
+                                                <constraint firstItem="RUY-uH-KxC" firstAttribute="top" secondItem="Dke-KR-Uom" secondAttribute="top" constant="3" id="zbb-lp-9gU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieImage" destination="RUY-uH-KxC" id="vhS-4b-J6N"/>
+                                            <outlet property="movieTitle" destination="XDZ-IK-nrr" id="G0V-2K-4vh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -52,10 +79,14 @@
                             <constraint firstItem="tnv-co-FS7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="z9S-J1-nbq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchInputField" destination="tnv-co-FS7" id="yIW-Mi-Pta"/>
+                        <outlet property="tableView" destination="ldC-lm-gVf" id="PjZ-Gv-Q12"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="5"/>
+            <point key="canvasLocation" x="26.717557251908396" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>

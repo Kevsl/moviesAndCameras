@@ -16,6 +16,11 @@ struct MovieDatas: Codable {
 }
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchInputField: UITextField!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,7 @@ class ViewController: UIViewController {
 
     
     func getMovies() {
-        guard let searchValue = sitftv.text else {
+        guard let searchValue = searchInputField.text else {
             return
         }
 

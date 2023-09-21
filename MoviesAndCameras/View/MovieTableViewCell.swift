@@ -5,7 +5,7 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTitle : UILabel!
-    @IBOutlet weak var movieImage: UIImage!
+    @IBOutlet weak var movieImage: UIImageView!
     
     var object: Movie!
 
@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell {
                 
                 DispatchQueue.main.async {
                     if let image = UIImage(data: data) {
-                        self.movieImage.image = image
+//                        self.movieImage.image = image
                     }
                 }
             }.resume()
