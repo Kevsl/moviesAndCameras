@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell {
                 
                 DispatchQueue.main.async {
                     if let image = UIImage(data: data) {
-//                        self.movieImage.image = image
+                        self.movieImage.image = image
                     }
                 }
             }.resume()
@@ -36,4 +36,4 @@ class MovieTableViewCell: UITableViewCell {
 
  
 
-}
+

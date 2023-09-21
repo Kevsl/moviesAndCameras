@@ -62,6 +62,12 @@ class ViewController: UIViewController {
             }.resume()
         }
     }
+    
+    @IBAction func searchAction(_ sender: UITextField) {
+        
+        getMovies()
+        
+    }
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -95,6 +101,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
         
         cell.setup(object)
+        return cell
         
     }
     
