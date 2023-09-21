@@ -14,15 +14,16 @@ class ImagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConfig()
-        
+        checkCamera()
     }
     
     func checkCamera(){
         
         let hasCamera = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        
-        
+        if(hasCamera){
+            setupPicker()
+        }
     }
     
     
@@ -32,6 +33,7 @@ class ImagesViewController: UIViewController {
     }
     
     @IBAction func openCamera(_ sender: UIButton) {
+        self.present(libraryPicker!, animated: true)
     }
     
     @IBAction func alertAction(_ sender: UIButton) {
@@ -55,7 +57,6 @@ extension ImagesViewController: PHPickerViewControllerDelegate {
                         }
                         print(error?.localizedDescription)
                     }
-                    
                 }
             }
             
@@ -68,8 +69,26 @@ extension ImagesViewController: PHPickerViewControllerDelegate {
             config.filter = .images
             config.selectionLimit = 1
             config.preferredAssetRepresentationMode = .automatic
-
             libraryPicker = PHPickerViewController(configuration: config)
             libraryPicker!.delegate = self
     }
 }
+
+extension ImagesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func setupPicker(){
+        picker.sourceType = .camera
+        picker.delegate = self
+        picker.allowsEditing = false
+        
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.imageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+}
+
+
